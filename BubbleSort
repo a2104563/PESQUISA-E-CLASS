@@ -2,14 +2,17 @@
 #include <stdio.h>
 
 int bubblesort(int *v, int tam){
-  for (size_t l=1; l<tam; l++){
-    for (size_t j = 0; j < tam; j++) {
+
+  for (size_t l=0; l<tam+1; l++){
+    for (size_t j = 0; j < tam-1; j++) {
       if (v[j] > v[j+1]){
         int aux = v[j+1];
         v[j+1]= v[j];
         v[j]= aux;
       }
     }
+    printf("passou\n");
+    tam--;
   }
 }
 

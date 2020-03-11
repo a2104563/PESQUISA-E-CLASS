@@ -2,26 +2,22 @@
 #include <stdio.h>
 
 int SelectionSort(int *v, int tam){
-  int menor=9999;
-  int indice;
+  int menor;
   int aux;
 
   for (size_t j = 0; j < tam; j++) {
-    for (size_t i = 0; i < tam; i++) {
-      if (v[i] < menor) {
-        menor = v[i];
-        indice = i;
+    menor=j;
+    for (size_t i = j; i < tam; i++) {
+      if (v[menor] > v[i]) {
+        menor = i;
       }
     }
-    printf("%d\n\n %d \n\n",menor, indice );
+    if(j != menor)
     aux = v[j];
-    v[j]= v[indice];
-    v[indice]= v[j];
+    v[j]= v[menor];
+    v[menor]= aux;
   }
-
 }
-
-
 
 int main(){
 

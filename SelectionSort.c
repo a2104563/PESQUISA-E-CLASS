@@ -1,32 +1,33 @@
-#include <stdlib.h>
 #include <stdio.h>
 
-int SelectionSort(int *v, int tam){
-  int menor;
-  int aux;
-
-  for (size_t j = 0; j < tam; j++) {
-    menor=j;
-    for (size_t i = j; i < tam; i++) {
-      if (v[menor] > v[i]) {
-        menor = i;
-      }
-    }
-    if(j != menor)
-    aux = v[j];
-    v[j]= v[menor];
-    v[menor]= aux;
-  }
+void bubblesort( int *V, int X){
+	int aux , fim, N = X;
+	while(fim != 0){	
+		for(int i = 0; i < N-1; i++){
+			if(V[i] > V[i+1]){
+				aux = V[i];
+				V[i] = V[i+1];
+				V[i+1] = aux;
+				fim = i;
+			}
+		}
+		N = N-1;
+	}
 }
 
-int main(){
 
-  int vetor[10]={7,4,1,8,5,2,0,9,6,3};
+int main() {
+    // Write C code here
+ int Teste[10] = {9,8,7,6,5,4,3,2,1,0};
+    for (int i = 0; i < 10; i++){
+        printf("%i",Teste[i]);
+    }
 
-  SelectionSort(vetor,10);
-  for (size_t i = 0; i < 10; i++){
-    printf("%d\n",vetor[i]);
-  }
+    bubblesort(Teste,10);
 
-  return 0;
+    printf("\n");
+
+    for (int i = 0; i < 10; i++){
+        printf("%i",Teste[i]);
+    }
 }
